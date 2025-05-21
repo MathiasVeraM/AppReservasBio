@@ -1,0 +1,127 @@
+﻿@model AppReservasBio.Models.Reserva
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Crear Reserva";
+}
+
+<h2 class="mb-4">Crear Reserva</h2>
+
+<form asp-action="Crear" method="post" class="needs-validation" novalidate>
+    <div class="card mb-4">
+        <div class="card-header">Información general</div>
+        <div class="card-body row g-3">
+            <div class="col-md-4">
+                <label class="form-label">Fecha</label>
+                <input asp-for="Fecha" type="date" class="form-control" required />
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Laboratorio</label>
+                <select asp-for="LaboratorioId" asp-items="@(new SelectList(ViewBag.Laboratorios, "Id", "Nombre"))" class="form-select" required></select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Módulo horario</label>
+                <select asp-for="ModuloHorarioId" asp-items="@(new SelectList(ViewBag.Modulos, "Id", "Nombre"))" class="form-select" required></select>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header d-flex justify-content-between align-items-center">
+            <span>Estudiantes</span>
+            <button type="button" class="btn btn-sm btn-outline-primary" onclick="agregarEstudiante()">Agregar otro estudiante</button>
+        </div>
+        <div class="card-body" id="estudiantes-container">
+            <div class="row g-3 mb-3">
+                <div class="col-md-3">
+                    <input name="estudiantes[0].Cedula" class="form-control" placeholder="Cédula" required />
+                </div>
+                <div class="col-md-3">
+                    <input name="estudiantes[0].Nombre" class="form-control" placeholder="Nombre" required />
+                </div>
+                <div class="col-md-4">
+                    <input name="estudiantes[0].Correo" class="form-control" placeholder="Correo" type="email" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">Equipos por laboratorio</div>
+        <div class="card-body">
+            @{
+                var equiposPorLab = ((List<AppReservasBio.Models.Equipo>)ViewBag.Equipos)
+                .GroupBy(e => e.NombreLaboratorio)
+                .OrderBy(g => g.Key);
+            }
+
+            @foreach (var grupo in equiposPorLab)
+            {
+                <fieldset class="mb-3 border rounded p-3">
+                    <legend class="float-none w-auto px-2 fw-bold">@grupo.Key</legend>
+                    <div class="row">
+                        @foreach (var equipo in grupo)
+                        {
+                            <div class="col-md-4">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" name="equipoIds" value="@equipo.Id" id="equipo-@equipo.Id" />
+                                    <label class="form-check-label" for="equipo-@equipo.Id">@equipo.Nombre</label>
+                                </div>
+                            </div>
+                        }
+                    </div>
+                </fieldset>
+            }
+        </div>
+    </div>
+
+    <div class="card mb-4">
+        <div class="card-header">Reactivos</div>
+        <div class="card-body row g-3">
+            @foreach (var reactivo in ViewBag.Reactivos)
+            {
+                <div class="col-md-6 d-flex align-items-center">
+                    <div class="form-check me-3">
+                        <input class="form-check-input" type="checkbox" name="reactivosSeleccionados" value="@reactivo.Id" id="reactivo-@reactivo.Id" onchange="toggleCantidad(this)" />
+                        <label class="form-check-label" for="reactivo-@reactivo.Id">@reactivo.Nombre</label>
+                    </div>
+                    <input type="number" name="cantidades[@reactivo.Id]" placeholder="Cantidad" class="form-control w-50" min="1" style="display:none;" />
+                </div>
+            }
+        </div>
+    </div>
+
+    <button type="submit" class="btn text-white" style="background-color: #1a234c;">Reservar</button>
+</form>
+
+@section Scripts {
+    <script>
+        let contador = 1;
+        function agregarEstudiante() {
+            const cont = document.getElementById("estudiantes-container");
+            const div = document.createElement("div");
+            div.className = "row g-3 mb-3";
+            div.innerHTML = `
+                        <div class="col-md-3">
+                            <input name="estudiantes[${contador}].Cedula" class="form-control" placeholder="Cédula" required />
+                        </div>
+                        <div class="col-md-3">
+                            <input name="estudiantes[${contador}].Nombre" class="form-control" placeholder="Nombre" required />
+                        </div>
+                        <div class="col-md-4">
+                            <input name="estudiantes[${contador}].Correo" class="form-control" placeholder="Correo" type="email" />
+                        </div>`;
+            cont.appendChild(div);
+            contador++;
+        }
+
+        function toggleCantidad(checkbox) {
+            const container = checkbox.closest('.d-flex');
+            const input = container.querySelector('input[type="number"]');
+            if (input) {
+                input.style.display = checkbox.checked ? 'inline-block' : 'none';
+            }
+        }
+    </script>
+}
