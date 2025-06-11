@@ -6,10 +6,13 @@
 
 <h2 class="mb-4">Crear Reserva</h2>
 
-<form asp-action="Crear" method="post" class="needs-validation" novalidate>
+<form asp-action="Crear" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
+
+    <!-- Información general -->
     <div class="card mb-4">
         <div class="card-header">Información general</div>
         <div class="card-body row g-3">
+
             <div class="col-md-4">
                 <label class="form-label">Fecha</label>
                 <input asp-for="Fecha" type="date" class="form-control" required />
@@ -24,29 +27,71 @@
                 <label class="form-label">Módulo horario</label>
                 <select asp-for="ModuloHorarioId" asp-items="@(new SelectList(ViewBag.Modulos, "Id", "Nombre"))" class="form-select" required></select>
             </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Docente</label>
+                <select asp-for="DocenteId" asp-items="@(new SelectList(ViewBag.Docentes, "Id", "Nombre"))" class="form-select" required></select>
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Materia</label>
+                <input asp-for="Materia" class="form-control" required />
+            </div>
+
+            <div class="col-md-4">
+                <label class="form-label">Nombre del proyecto</label>
+                <input asp-for="NombreProyecto" class="form-control" required />
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label">Actividad</label>
+                <input asp-for="Actividad" class="form-control" required />
+            </div>
+
+            <div class="col-md-12">
+                <label class="form-label">Consideraciones especiales</label>
+                <textarea asp-for="ConsideracionesEspeciales" class="form-control" rows="3"></textarea>
+            </div>
+
+            <div class="col-md-6">
+                <label class="form-label">Evidencia del correo aprobado</label>
+                <input asp-for="EvidenciaCorreoRuta" type="file" accept="image/*" class="form-control" required />
+            </div>
+
         </div>
     </div>
 
+    <!-- Estudiantes -->
     <div class="card mb-4">
         <div class="card-header d-flex justify-content-between align-items-center">
-            <span>Estudiantes</span>
-            <button type="button" class="btn btn-sm btn-outline-primary" onclick="agregarEstudiante()">Agregar otro estudiante</button>
+            <span>Estudiantes (máx. 4)</span>
+            <button type="button" class="btn btn-sm btn-outline-primary" onclick="agregarEstudiante()">Agregar estudiante</button>
         </div>
         <div class="card-body" id="estudiantes-container">
-            <div class="row g-3 mb-3">
+            <div class="row g-3 mb-3 estudiante-item">
                 <div class="col-md-3">
                     <input name="estudiantes[0].Cedula" class="form-control" placeholder="Cédula" required />
                 </div>
                 <div class="col-md-3">
                     <input name="estudiantes[0].Nombre" class="form-control" placeholder="Nombre" required />
                 </div>
-                <div class="col-md-4">
-                    <input name="estudiantes[0].Correo" class="form-control" placeholder="Correo" type="email" />
+                <div class="col-md-3">
+                    <input name="estudiantes[0].Correo" class="form-control" placeholder="Correo del líder" type="email" required />
+                </div>
+                <div class="col-md-2 d-flex align-items-center">
+                    <div class="form-check">
+                        <input class="form-check-input lider-radio" type="radio" name="lider" checked />
+                        <label class="form-check-label">Líder</label>
+                    </div>
+                </div>
+                <div class="col-md-1 d-flex align-items-center">
+                    <button type="button" class="btn btn-sm btn-danger" onclick="eliminarEstudiante(this)">X</button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Equipos por laboratorio -->
     <div class="card mb-4">
         <div class="card-header">Equipos por laboratorio</div>
         <div class="card-body">
@@ -76,17 +121,27 @@
         </div>
     </div>
 
+    <!-- Equipos por laboratorio -->
     <div class="card mb-4">
         <div class="card-header">Reactivos</div>
         <div class="card-body row g-3">
             @foreach (var reactivo in ViewBag.Reactivos)
             {
-                <div class="col-md-6 d-flex align-items-center">
+                <div class="col-md-12 d-flex align-items-center mb-2" id="reactivo-container-@reactivo.Id">
                     <div class="form-check me-3">
                         <input class="form-check-input" type="checkbox" name="reactivosSeleccionados" value="@reactivo.Id" id="reactivo-@reactivo.Id" onchange="toggleCantidad(this)" />
                         <label class="form-check-label" for="reactivo-@reactivo.Id">@reactivo.Nombre</label>
                     </div>
-                    <input type="number" name="cantidades[@reactivo.Id]" placeholder="Cantidad" class="form-control w-50" min="1" style="display:none;" />
+
+                    <input type="number" name="cantidades[@reactivo.Id]" placeholder="Cantidad" class="form-control me-2 w-25" min="1" style="display:none;" />
+
+                    <select name="unidades[@reactivo.Id]" class="form-select w-25" style="display:none;">
+                        <option value="">Selecciona unidad</option>
+                        @foreach (var unidad in ViewBag.Unidades)
+                        {
+                            <option value="@unidad.Nombre">@unidad.Nombre</option>
+                        }
+                    </select>
                 </div>
             }
         </div>
@@ -98,10 +153,17 @@
 @section Scripts {
     <script>
         let contador = 1;
+
         function agregarEstudiante() {
+            const total = document.querySelectorAll('.estudiante-item').length;
+            if (total >= 4) {
+                alert("Solo se permiten hasta 4 estudiantes por grupo.");
+                return;
+            }
+
             const cont = document.getElementById("estudiantes-container");
             const div = document.createElement("div");
-            div.className = "row g-3 mb-3";
+            div.className = "row g-3 mb-3 estudiante-item";
             div.innerHTML = `
                         <div class="col-md-3">
                             <input name="estudiantes[${contador}].Cedula" class="form-control" placeholder="Cédula" required />
@@ -109,19 +171,54 @@
                         <div class="col-md-3">
                             <input name="estudiantes[${contador}].Nombre" class="form-control" placeholder="Nombre" required />
                         </div>
-                        <div class="col-md-4">
-                            <input name="estudiantes[${contador}].Correo" class="form-control" placeholder="Correo" type="email" />
+                        <div class="col-md-3">
+                            <input name="estudiantes[${contador}].Correo" class="form-control" placeholder="(Solo líder)" type="email" disabled />
+                        </div>
+                        <div class="col-md-2 d-flex align-items-center">
+                            <div class="form-check">
+                                <input class="form-check-input lider-radio" type="radio" name="lider" onclick="asignarLider(this)" />
+                                <label class="form-check-label">Líder</label>
+                            </div>
+                        </div>
+                        <div class="col-md-1 d-flex align-items-center">
+                            <button type="button" class="btn btn-sm btn-danger" onclick="eliminarEstudiante(this)">X</button>
                         </div>`;
             cont.appendChild(div);
             contador++;
         }
 
+        function eliminarEstudiante(btn) {
+            const cont = document.getElementById("estudiantes-container");
+            const item = btn.closest('.estudiante-item');
+            cont.removeChild(item);
+        }
+
+        function asignarLider(radio) {
+            document.querySelectorAll('.estudiante-item').forEach(item => {
+                const correo = item.querySelector('input[type="email"]');
+                correo.disabled = true;
+                correo.removeAttribute('required');
+            });
+
+            const correoLider = radio.closest('.estudiante-item').querySelector('input[type="email"]');
+            correoLider.disabled = false;
+            correoLider.setAttribute('required', 'required');
+        }
+
         function toggleCantidad(checkbox) {
             const container = checkbox.closest('.d-flex');
-            const input = container.querySelector('input[type="number"]');
-            if (input) {
-                input.style.display = checkbox.checked ? 'inline-block' : 'none';
-            }
+            const cantidadInput = container.querySelector('input[type="number"]');
+            const unidadSelect = container.querySelector('select');
+
+            const mostrar = checkbox.checked;
+
+            if (cantidadInput) cantidadInput.style.display = mostrar ? 'inline-block' : 'none';
+            if (unidadSelect) unidadSelect.style.display = mostrar ? 'inline-block' : 'none';
         }
+
+        // inicializa el correo del líder por defecto (primer radio seleccionado)
+        window.onload = () => {
+            asignarLider(document.querySelector('.lider-radio'));
+        };
     </script>
 }

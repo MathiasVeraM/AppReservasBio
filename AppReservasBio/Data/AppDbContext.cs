@@ -18,6 +18,8 @@ namespace AppReservasBio.Data
         public DbSet<Reactivo> Reactivos { get; set; }
         public DbSet<UsuarioAdmin> UsuariosAdmin { get; set; }
         public DbSet<ReservaReactivo> ReservaReactivos { get; set; }
+        public DbSet<Docente> Docentes { get; set; }
+        public DbSet<Unidad> Unidades { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -60,6 +62,25 @@ namespace AppReservasBio.Data
                     new ModuloHorario { Id = 10, Nombre = "16:45 - 17:45", HoraInicio = new TimeSpan(16, 45, 0), HoraFin = new TimeSpan(17, 45, 0) },
                     new ModuloHorario { Id = 11, Nombre = "17:50 - 18:50", HoraInicio = new TimeSpan(17, 50, 0), HoraFin = new TimeSpan(18, 50, 0) }
             );
+
+            // Estudiante -> Reserva
+            modelBuilder.Entity<Estudiante>()
+                .HasOne(e => e.Reserva)
+                .WithMany(r => r.Estudiantes)
+                .HasForeignKey(e => e.ReservaId)
+                .OnDelete(DeleteBehavior.Cascade);
+
+            // ReservaReactivo relaciones
+            modelBuilder.Entity<ReservaReactivo>()
+                .HasOne(rr => rr.Reserva)
+                .WithMany(r => r.ReservaReactivos)
+                .HasForeignKey(rr => rr.ReservaId);
+
+            modelBuilder.Entity<ReservaReactivo>()
+                .HasOne(rr => rr.Reactivo)
+                .WithMany()
+                .HasForeignKey(rr => rr.ReactivoId);
+
         }
     }
 }

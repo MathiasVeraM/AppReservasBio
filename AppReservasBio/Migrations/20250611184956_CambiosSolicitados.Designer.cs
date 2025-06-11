@@ -4,6 +4,7 @@ using AppReservasBio.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppReservasBio.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250611184956_CambiosSolicitados")]
+    partial class CambiosSolicitados
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -221,7 +224,7 @@ namespace AppReservasBio.Migrations
                         .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("UnidadId")
+                    b.Property<int>("UnidadId")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
@@ -302,10 +305,6 @@ namespace AppReservasBio.Migrations
                     b.Property<int>("ReservaId")
                         .HasColumnType("int");
 
-                    b.Property<string>("Unidad")
-                        .IsRequired()
-                        .HasColumnType("nvarchar(max)");
-
                     b.HasKey("Id");
 
                     b.HasIndex("ReactivoId");
@@ -385,9 +384,13 @@ namespace AppReservasBio.Migrations
 
             modelBuilder.Entity("AppReservasBio.Models.Reactivo", b =>
                 {
-                    b.HasOne("AppReservasBio.Models.Unidad", null)
+                    b.HasOne("AppReservasBio.Models.Unidad", "Unidad")
                         .WithMany("Reactivos")
-                        .HasForeignKey("UnidadId");
+                        .HasForeignKey("UnidadId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.Navigation("Unidad");
                 });
 
             modelBuilder.Entity("AppReservasBio.Models.Reserva", b =>

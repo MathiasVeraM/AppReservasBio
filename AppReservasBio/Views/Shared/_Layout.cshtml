@@ -41,11 +41,11 @@
                     </ul>
                 </div>
                 <!-- Este es para que lleve al controlador de usuarios a login como administrador -->
-                <a class="navbar-brand fs-5 bi bi-door-open-fill text-white" asp-area="" asp-controller="Cuenta" asp-action="Login"></a>
+                <a class="navbar-brand fs-4 bi bi-person-fill text-white" asp-area="" asp-controller="Cuenta" asp-action="Login"></a>
                 @if (User.Identity.IsAuthenticated)
                 {
                     <form asp-area="" asp-controller="Cuenta" asp-action="Logout" method="post" class="d-inline">
-                        <button type="submit" class="btn btn-link navbar-brand fs-5 bi bi-door-closed-fill text-white" style="text-decoration: none;"></button>
+                        <button type="submit" class="btn btn-link navbar-brand fs-4 bi bi-box-arrow-right text-white" style="text-decoration: none;"></button>
                     </form>
                 }
             </div>

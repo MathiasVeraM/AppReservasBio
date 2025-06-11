@@ -21,12 +21,22 @@ namespace AppReservasBio.Controllers
             ViewBag.Modulos = _context.ModulosHorario.ToList();
             ViewBag.Reactivos = _context.Reactivos.ToList();
             ViewBag.Equipos = _context.Equipos.ToList();
+            ViewBag.Docentes = _context.Docentes.ToList();
+            ViewBag.Unidades = _context.Unidades.ToList();
             return View();
         }
 
         // POST: /Reservas/Crear
         [HttpPost]
-        public IActionResult Crear(Reserva reserva,List<Estudiante> estudiantes,List<int> equipoIds,List<int> reactivosSeleccionados,Dictionary<int, int> cantidades)
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Crear(
+            Reserva reserva,
+            IFormFile EvidenciaCorreoRuta,
+            List<Estudiante> estudiantes,
+            List<int> equipoIds,
+            List<int> reactivosSeleccionados,
+            Dictionary<int, int> cantidades,
+            Dictionary<int, string> unidades)
         {
             var reservasExistentes = _context.Reservas
                 .Count(r => r.Fecha == reserva.Fecha &&
@@ -40,28 +50,65 @@ namespace AppReservasBio.Controllers
                 ViewBag.Modulos = _context.ModulosHorario.ToList();
                 ViewBag.Reactivos = _context.Reactivos.ToList();
                 ViewBag.Equipos = _context.Equipos.ToList();
+                ViewBag.Docentes = _context.Docentes.ToList();
+                ViewBag.Unidades = _context.Unidades.ToList();
                 return View(reserva);
             }
 
-            reserva.Estudiantes = estudiantes;
-            reserva.Equipos = _context.Equipos.Where(e => equipoIds.Contains(e.Id)).ToList();
+            // Validar y guardar la evidencia
+            if (EvidenciaCorreoRuta != null && EvidenciaCorreoRuta.Length > 0)
+            {
+                var nombreArchivo = Path.GetFileName(EvidenciaCorreoRuta.FileName);
+                var rutaCarpeta = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot", "evidencia");
+                Directory.CreateDirectory(rutaCarpeta);
 
-            // Construir la relación con cantidades
+                var rutaCompleta = Path.Combine(rutaCarpeta, nombreArchivo);
+                using (var stream = new FileStream(rutaCompleta, FileMode.Create))
+                {
+                    await EvidenciaCorreoRuta.CopyToAsync(stream);
+                }
+
+                // Guardar ruta relativa para usarla en la web
+                reserva.EvidenciaCorreoRuta = "/evidencia/" + nombreArchivo;
+            }
+            else
+            {
+                ModelState.AddModelError("EvidenciaCorreoRuta", "Debe subir una imagen como evidencia.");
+                ViewBag.Laboratorios = _context.Laboratorios.ToList();
+                ViewBag.Modulos = _context.ModulosHorario.ToList();
+                ViewBag.Reactivos = _context.Reactivos.ToList();
+                ViewBag.Equipos = _context.Equipos.ToList();
+                ViewBag.Docentes = _context.Docentes.ToList();
+                ViewBag.Unidades = _context.Unidades.ToList();
+                return View(reserva);
+            }
+
+            // Estudiantes
+            reserva.Estudiantes = estudiantes;
+
+            // Equipos
+            reserva.Equipos = _context.Equipos
+                .Where(e => equipoIds.Contains(e.Id))
+                .ToList();
+
+            // Reactivos con cantidad y unidad
             reserva.ReservaReactivos = new List<ReservaReactivo>();
             foreach (var reactivoId in reactivosSeleccionados)
             {
-                if (cantidades.TryGetValue(reactivoId, out int cantidad) && cantidad > 0)
+                if (cantidades.TryGetValue(reactivoId, out int cantidad) && cantidad > 0 &&
+                    unidades.TryGetValue(reactivoId, out string unidad) && !string.IsNullOrWhiteSpace(unidad))
                 {
                     reserva.ReservaReactivos.Add(new ReservaReactivo
                     {
                         ReactivoId = reactivoId,
-                        Cantidad = cantidad
+                        Cantidad = cantidad,
+                        Unidad = unidad
                     });
                 }
             }
 
             _context.Reservas.Add(reserva);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
             return RedirectToAction("Index", "Home");
         }

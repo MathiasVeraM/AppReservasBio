@@ -170,3 +170,4 @@ C:\Users\USUARIO\Desktop\MATHIAS\PROYECTOS\ASP NET\AppReservasBio\AppReservasBio
 C:\Users\USUARIO\Desktop\MATHIAS\PROYECTOS\ASP NET\AppReservasBio\AppReservasBio\obj\Debug\net8.0\AppReservasBio.pdb
 C:\Users\USUARIO\Desktop\MATHIAS\PROYECTOS\ASP NET\AppReservasBio\AppReservasBio\obj\Debug\net8.0\AppReservasBio.genruntimeconfig.cache
 C:\Users\USUARIO\Desktop\MATHIAS\PROYECTOS\ASP NET\AppReservasBio\AppReservasBio\obj\Debug\net8.0\ref\AppReservasBio.dll
+C:\Users\USUARIO\Desktop\MATHIAS\PROYECTOS\ASP NET\AppReservasBio\AppReservasBio\obj\Debug\net8.0\AppReservasBio.sourcelink.json
