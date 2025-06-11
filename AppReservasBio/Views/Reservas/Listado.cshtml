@@ -16,6 +16,7 @@
             <th>Equipos</th>
             <th>Reactivos</th>
             <th>Estado</th>
+            <th>Detalle</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -61,13 +62,17 @@
                     }
                 </td>
                 <td>
+                    <a asp-action="Detalle" asp-route-id="@r.Id" class="btn btn-info">Ver Detalles</a>
+                </td>
+                <td>
                     <form asp-action="Aprobar" method="post" class="d-inline">
                         <input type="hidden" name="id" value="@r.Id" />
-                        <button type="submit" class="btn btn-success btn-sm" @(r.Aprobado ? "disabled" : "")>Aprobar</button>
+                        <button type="submit" class="btn btn-success btn-sm">Aprobar</button>
                     </form>
+                    <br />
                     <form asp-action="Rechazar" method="post" class="d-inline">
                         <input type="hidden" name="id" value="@r.Id" />
-                        <button type="submit" class="btn btn-danger btn-sm" @(r.Aprobado ? "" : "disabled")>Rechazar</button>
+                        <button type="submit" class="btn btn-danger btn-sm">Rechazar</button>
                     </form>
                 </td>
             </tr>

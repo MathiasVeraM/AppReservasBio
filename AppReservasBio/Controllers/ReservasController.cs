@@ -118,6 +118,7 @@ namespace AppReservasBio.Controllers
             var reservas = _context.Reservas
                 .Include(r => r.Laboratorio)
                 .Include(r => r.ModuloHorario)
+                .Include(r => r.Docente) // <--- Agregar esto
                 .Include(r => r.Estudiantes)
                 .Include(r => r.Equipos)
                 .Include(r => r.ReservaReactivos)
@@ -126,6 +127,26 @@ namespace AppReservasBio.Controllers
                 .ToList();
 
             return View(reservas);
+        }
+
+        public IActionResult Detalle(int id)
+        {
+            var reserva = _context.Reservas
+                .Include(r => r.Laboratorio)
+                .Include(r => r.ModuloHorario)
+                .Include(r => r.Docente)
+                .Include(r => r.Estudiantes)
+                .Include(r => r.Equipos)
+                .Include(r => r.ReservaReactivos)
+                    .ThenInclude(rr => rr.Reactivo)
+                .FirstOrDefault(r => r.Id == id);
+
+            if (reserva == null)
+            {
+                return NotFound();
+            }
+
+            return View(reserva);
         }
 
         [HttpPost]

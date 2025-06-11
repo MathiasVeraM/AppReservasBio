@@ -24,6 +24,18 @@
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"kz0px0cjin"},{"Name":"integrity","Value":"sha256-wO2\u002B499PQcy1xeWOIeRH3M7YbuI6rSEeabeCxEZf5b8="},{"Name":"label","Value":"_content/AppReservasBio/css/site.css"}]]]></EndpointProperties>
       <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"766"},{"Name":"Content-Type","Value":"text/css"},{"Name":"ETag","Value":"\u0022wO2\u002B499PQcy1xeWOIeRH3M7YbuI6rSEeabeCxEZf5b8=\u0022"},{"Name":"Last-Modified","Value":"Tue, 20 May 2025 17:50:03 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AppReservasBio/evidencia/BobPreocupado.fu79h11ama.jfif">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\evidencia\BobPreocupado.jfif'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"fu79h11ama"},{"Name":"integrity","Value":"sha256-CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ="},{"Name":"label","Value":"_content/AppReservasBio/evidencia/BobPreocupado.jfif"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6278"},{"Name":"Content-Type","Value":"image/pjpeg"},{"Name":"ETag","Value":"\u0022CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 19:40:23 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AppReservasBio/evidencia/BobPreocupado.jfif">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\evidencia\BobPreocupado.jfif'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"6278"},{"Name":"Content-Type","Value":"image/pjpeg"},{"Name":"ETag","Value":"\u0022CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 11 Jun 2025 19:40:23 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AppReservasBio/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>

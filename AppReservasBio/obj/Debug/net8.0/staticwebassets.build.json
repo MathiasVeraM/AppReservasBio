@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "CF3VRevGoSL80CIRqslzEZwhsUkBX6gMx+oOwXpwd1A=",
+  "Hash": "aKA8jdUChtQjFbJ3ngSMwjgd8JN2xvqmrhfHa+eb4io=",
   "Source": "AppReservasBio",
   "BasePath": "_content/AppReservasBio",
   "Mode": "Default",
@@ -78,6 +78,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\BobPreocupado.jfif",
+      "SourceId": "AppReservasBio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\",
+      "BasePath": "_content/AppReservasBio",
+      "RelativePath": "evidencia/BobPreocupado#[.{fingerprint}]?.jfif",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "fu79h11ama",
+      "Integrity": "CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\evidencia\\BobPreocupado.jfif"
     },
     {
       "Identity": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\favicon.ico",
@@ -1584,6 +1605,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-wO2+499PQcy1xeWOIeRH3M7YbuI6rSEeabeCxEZf5b8="
+        }
+      ]
+    },
+    {
+      "Route": "evidencia/BobPreocupado.fu79h11ama.jfif",
+      "AssetFile": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\BobPreocupado.jfif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6278"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/pjpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 11 Jun 2025 19:40:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "fu79h11ama"
+        },
+        {
+          "Name": "label",
+          "Value": "evidencia/BobPreocupado.jfif"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ="
+        }
+      ]
+    },
+    {
+      "Route": "evidencia/BobPreocupado.jfif",
+      "AssetFile": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\BobPreocupado.jfif",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "6278"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/pjpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 11 Jun 2025 19:40:23 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ="
         }
       ]
     },

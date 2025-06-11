@@ -7,8 +7,12 @@
       "RelativeMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|solutionrelative:appreservasbio\\views\\reservas\\listado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|c:\\users\\usuario\\desktop\\mathias\\proyectos\\asp net\\appreservasbio\\appreservasbio\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|solutionrelative:appreservasbio\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|c:\\users\\usuario\\desktop\\mathias\\proyectos\\asp net\\appreservasbio\\appreservasbio\\views\\reservas\\detalle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|solutionrelative:appreservasbio\\views\\reservas\\detalle.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|c:\\users\\usuario\\desktop\\mathias\\proyectos\\asp net\\appreservasbio\\appreservasbio\\models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|solutionrelative:appreservasbio\\models\\reserva.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -18,8 +22,34 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 2,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Detalle.cshtml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Views\\Reservas\\Detalle.cshtml",
+              "RelativeDocumentMoniker": "AppReservasBio\\Views\\Reservas\\Detalle.cshtml",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Views\\Reservas\\Detalle.cshtml",
+              "RelativeToolTip": "AppReservasBio\\Views\\Reservas\\Detalle.cshtml",
+              "ViewState": "AgIAAB4AAAAAAAAAAAAAAAQAAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-11T20:04:55.341Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "Reserva.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Models\\Reserva.cs",
+              "RelativeDocumentMoniker": "AppReservasBio\\Models\\Reserva.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Models\\Reserva.cs",
+              "RelativeToolTip": "AppReservasBio\\Models\\Reserva.cs",
+              "ViewState": "AgIAACIAAAAAAAAAAAAiwCcAAAAqAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-06-11T19:58:30.58Z",
+              "EditorCaption": ""
+            },
             {
               "$type": "Document",
               "DocumentIndex": 0,
@@ -28,22 +58,9 @@
               "RelativeDocumentMoniker": "AppReservasBio\\Views\\Reservas\\Listado.cshtml",
               "ToolTip": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Views\\Reservas\\Listado.cshtml",
               "RelativeToolTip": "AppReservasBio\\Views\\Reservas\\Listado.cshtml",
-              "ViewState": "AgIAADAAAAAAAAAAAAAiwDgAAAAVAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAAbAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2025-06-11T19:45:40.809Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ReservasController.cs",
-              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Controllers\\ReservasController.cs",
-              "RelativeDocumentMoniker": "AppReservasBio\\Controllers\\ReservasController.cs",
-              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Controllers\\ReservasController.cs",
-              "RelativeToolTip": "AppReservasBio\\Controllers\\ReservasController.cs",
-              "ViewState": "AgIAAIIAAAAAAAAAAAAuwIwAAAAJAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-11T19:32:58.126Z",
               "EditorCaption": ""
             }
           ]

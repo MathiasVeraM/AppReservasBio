@@ -1,0 +1,57 @@
+﻿@model AppReservasBio.Models.Reserva
+@{
+    ViewData["Title"] = "Detalle de Reserva";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2 class="mb-4">Detalle de la Reserva</h2>
+
+<div class="card">
+    <div class="card-body">
+        <p><strong>Fecha:</strong> @Model.Fecha.ToString("dd/MM/yyyy")</p>
+        <p><strong>Materia:</strong> @Model.Materia</p>
+        <p><strong>Proyecto:</strong> @Model.NombreProyecto</p>
+        <p><strong>Actividad:</strong> @Model.Actividad</p>
+        <p><strong>Consideraciones:</strong> @Model.ConsideracionesEspeciales</p>
+        <p><strong>Docente:</strong> @Model.Docente.Nombre</p>
+        <p><strong>Laboratorio:</strong> @Model.Laboratorio.Nombre</p>
+        <p><strong>Módulo:</strong> @Model.ModuloHorario.Nombre</p>
+
+        <p><strong>Estudiantes:</strong></p>
+        <ul>
+            @foreach (var est in Model.Estudiantes)
+            {
+                <li>@est.Nombre (@est.Cedula)</li>
+            }
+        </ul>
+
+        <p><strong>Equipos:</strong></p>
+        <ul>
+            @foreach (var eq in Model.Equipos)
+            {
+                <li>@eq.Nombre</li>
+            }
+        </ul>
+
+        <p><strong>Reactivos:</strong></p>
+        <ul>
+            @foreach (var rr in Model.ReservaReactivos)
+            {
+                <li>@rr.Reactivo.Nombre: @rr.Cantidad @rr.Unidad</li>
+            }
+        </ul>
+
+        <p><strong>Evidencia:</strong></p>
+        @if (!string.IsNullOrEmpty(Model.EvidenciaCorreoRuta))
+        {
+            <img src="@Model.EvidenciaCorreoRuta" alt="Evidencia" width="200" class="img-thumbnail" />
+        }
+        else
+        {
+            <span>No disponible</span>
+        }
+
+        <br /><br />
+        <a asp-action="Listado" class="btn btn-secondary">Volver</a>
+    </div>
+</div>
