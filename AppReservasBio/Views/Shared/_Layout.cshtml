@@ -23,19 +23,23 @@
                 </button>
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-center">
                     <ul class="navbar-nav justify-content-center">
-                        <!-- Este es para que lleve al calendario con los modulos disponibles -->
-                        <li class="nav-item justify-content-center">
-                            <a class="nav-link text-dark fs-5 bi bi-calendar-date-fill text-white" asp-area="" asp-controller="Reservas" asp-action="Calendario"></a>
-                        </li>
-                        <!-- Este es para que lleve a la opcion de crear una reserva -->
-                        <li class="nav-item justify-content-center">
-                            <a class="nav-link text-dark fs-5 bi bi-house-fill text-white" asp-area="" asp-controller="Reservas" asp-action="Crear"></a>
-                        </li>
-                        <!-- Este es para que lleve al administrador a ver las reservas realizadas -->
-                        @if (User.Identity.IsAuthenticated)
+                        @if(!User.Identity.IsAuthenticated){
+                            <!-- Este es para que lleve al calendario con los modulos disponibles -->
+                            <li class="nav-item justify-content-center">
+                                    <a class="nav-link text-dark fs-5 bi bi-calendar2-week-fill text-white" asp-area="" asp-controller="Reservas" asp-action="Calendario"></a>
+                            </li>
+                            <!-- Este es para que lleve a la opcion de crear una reserva -->
+                            <li class="nav-item justify-content-center">
+                                    <a class="nav-link text-dark fs-5 bi bi-pencil-square text-white" asp-area="" asp-controller="Reservas" asp-action="Crear"></a>
+                            </li>
+                        }
+                        else
                         {
                             <li class="nav-item justify-content-center">
-                                <a class="nav-link text-dark fs-5 bi bi-archive-fill text-white" asp-area="" asp-controller="Reservas" asp-action="Listado"></a>
+                                    <a class="nav-link text-dark fs-5 bi bi-hammer text-white" asp-area="" asp-controller="Reservas" asp-action="CrearMantenimiento"></a>
+                            </li>
+                            <li class="nav-item justify-content-center">
+                                <a class="nav-link text-dark fs-5 bi bi-inboxes-fill text-white" asp-area="" asp-controller="Reservas" asp-action="Listado"></a>
                             </li>
                         }
                     </ul>

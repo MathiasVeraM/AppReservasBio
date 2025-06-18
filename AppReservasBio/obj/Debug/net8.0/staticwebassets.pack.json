@@ -9,6 +9,10 @@
       "PackagePath": "staticwebassets\\css\\site.css"
     },
     {
+      "Id": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\BobEnojado.jpg",
+      "PackagePath": "staticwebassets\\evidencia\\BobEnojado.jpg"
+    },
+    {
       "Id": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\BobPreocupado.jfif",
       "PackagePath": "staticwebassets\\evidencia\\BobPreocupado.jfif"
     },

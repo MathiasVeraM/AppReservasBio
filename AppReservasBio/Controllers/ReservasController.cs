@@ -107,10 +107,56 @@ namespace AppReservasBio.Controllers
                 }
             }
 
+            if (!reserva.EsMantenimiento)
+            {
+                if (string.IsNullOrWhiteSpace(reserva.Materia) ||
+                    string.IsNullOrWhiteSpace(reserva.NombreProyecto) ||
+                    string.IsNullOrWhiteSpace(reserva.Actividad) ||
+                    reserva.ModuloHorarioId == null ||
+                    reserva.DocenteId == null ||
+                    string.IsNullOrWhiteSpace(reserva.EvidenciaCorreoRuta))
+                {
+                    ModelState.AddModelError("", "Todos los campos del formulario son obligatorios.");
+                    ViewBag.Laboratorios = _context.Laboratorios.ToList();
+                    ViewBag.Modulos = _context.ModulosHorario.ToList();
+                    ViewBag.Reactivos = _context.Reactivos.ToList();
+                    ViewBag.Equipos = _context.Equipos.ToList();
+                    ViewBag.Docentes = _context.Docentes.ToList();
+                    ViewBag.Unidades = _context.Unidades.ToList();
+                    return View(reserva);
+                }
+            }
+
+            var hayMantenimiento = await _context.Reservas.AnyAsync(r =>
+            r.EsMantenimiento &&
+            r.Fecha == reserva.Fecha &&
+            r.LaboratorioId == reserva.LaboratorioId &&
+            reserva.ModuloHorarioId != null &&
+            r.HoraInicioMantenimiento < _context.ModulosHorario
+                .Where(m => m.Id == reserva.ModuloHorarioId)
+                .Select(m => m.HoraFin)
+                .FirstOrDefault() &&
+            r.HoraFinMantenimiento > _context.ModulosHorario
+                .Where(m => m.Id == reserva.ModuloHorarioId)
+                .Select(m => m.HoraInicio)
+                .FirstOrDefault());
+
+            if (hayMantenimiento)
+            {
+                ModelState.AddModelError("", "No se puede crear la reserva: existe un mantenimiento programado para ese horario.");
+                ViewBag.Laboratorios = _context.Laboratorios.ToList();
+                ViewBag.Modulos = _context.ModulosHorario.ToList();
+                ViewBag.Reactivos = _context.Reactivos.ToList();
+                ViewBag.Equipos = _context.Equipos.ToList();
+                ViewBag.Docentes = _context.Docentes.ToList();
+                ViewBag.Unidades = _context.Unidades.ToList();
+                return View(reserva);
+            }
+
             _context.Reservas.Add(reserva);
             await _context.SaveChangesAsync();
 
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Calendario", "Reservas");
         }
 
         public IActionResult Listado()
@@ -118,7 +164,7 @@ namespace AppReservasBio.Controllers
             var reservas = _context.Reservas
                 .Include(r => r.Laboratorio)
                 .Include(r => r.ModuloHorario)
-                .Include(r => r.Docente) // <--- Agregar esto
+                .Include(r => r.Docente)
                 .Include(r => r.Estudiantes)
                 .Include(r => r.Equipos)
                 .Include(r => r.ReservaReactivos)
@@ -173,6 +219,55 @@ namespace AppReservasBio.Controllers
             return RedirectToAction("Listado");
         }
 
+        [HttpGet]
+        public IActionResult CrearMantenimiento()
+        {
+            if (!User.Identity.IsAuthenticated || !User.IsInRole("admin"))
+                return RedirectToAction("Login", "Cuenta");
+
+            ViewBag.Laboratorios = _context.Laboratorios.ToList();
+            return View();
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> CrearMantenimiento(Reserva reserva)
+        {
+            if (!User.Identity.IsAuthenticated || !User.IsInRole("admin"))
+                return RedirectToAction("Login", "Cuenta");
+
+            if (reserva.HoraInicioMantenimiento == null || reserva.HoraFinMantenimiento == null)
+            {
+                ModelState.AddModelError("", "Debe especificar el horario.");
+                ViewBag.Laboratorios = _context.Laboratorios.ToList();
+                return View(reserva);
+            }
+
+            // Validación de conflictos
+            var conflicto = _context.Reservas.Any(r =>
+                r.Fecha == reserva.Fecha &&
+                r.LaboratorioId == reserva.LaboratorioId &&
+                (
+                    (r.EsMantenimiento && reserva.HoraInicioMantenimiento < r.HoraFinMantenimiento && reserva.HoraFinMantenimiento > r.HoraInicioMantenimiento)
+                    || (!r.EsMantenimiento && r.ModuloHorario.HoraInicio < reserva.HoraFinMantenimiento && r.ModuloHorario.HoraFin > reserva.HoraInicioMantenimiento)
+                ));
+
+            if (conflicto)
+            {
+                ModelState.AddModelError("", "Ya existe una reserva en ese horario.");
+                ViewBag.Laboratorios = _context.Laboratorios.ToList();
+                return View(reserva);
+            }
+
+            reserva.EsMantenimiento = true;
+            reserva.UsuarioId = User.FindFirst("UserId")?.Value;
+
+            _context.Reservas.Add(reserva);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Calendario");
+        }
+
         public IActionResult Calendario()
         {
             return View();
@@ -182,15 +277,22 @@ namespace AppReservasBio.Controllers
         public JsonResult ObtenerReservas()
         {
             var reservas = _context.Reservas
-        .Include(r => r.Laboratorio)
-        .Include(r => r.ModuloHorario)
-        .Select(r => new
-        {
-            title = $"Reserva - {r.Laboratorio.Nombre}",
-            start = r.Fecha.Date.Add(r.ModuloHorario.HoraInicio),
-            end = r.Fecha.Date.Add(r.ModuloHorario.HoraFin),
-            laboratorio = r.Laboratorio.Nombre
-        }).ToList();
+                .Include(r => r.Laboratorio)
+                .Include(r => r.ModuloHorario)
+                .Select(r => new
+                {
+                    title = r.EsMantenimiento
+                        ? $"Mantenimiento - {r.Laboratorio.Nombre}"
+                        : $"Reserva - {r.Laboratorio.Nombre}",
+                    start = r.EsMantenimiento
+                        ? r.Fecha.Date.Add(r.HoraInicioMantenimiento.Value)
+                        : r.Fecha.Date.Add(r.ModuloHorario.HoraInicio),
+                    end = r.EsMantenimiento
+                        ? r.Fecha.Date.Add(r.HoraFinMantenimiento.Value)
+                        : r.Fecha.Date.Add(r.ModuloHorario.HoraFin),
+                    laboratorio = r.Laboratorio.Nombre,
+                    color = r.EsMantenimiento ? "#dc3545" : "#198754", // rojo vs verde
+                }).ToList();
 
             return Json(reservas);
         }

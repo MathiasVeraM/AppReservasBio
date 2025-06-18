@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "aKA8jdUChtQjFbJ3ngSMwjgd8JN2xvqmrhfHa+eb4io=",
+  "Hash": "OinIydbq9EPnLaEBNUPtMIjoudY64EOqIfOw2hGbW/I=",
   "Source": "AppReservasBio",
   "BasePath": "_content/AppReservasBio",
   "Mode": "Default",
@@ -78,6 +78,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\css\\site.css"
+    },
+    {
+      "Identity": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\BobEnojado.jpg",
+      "SourceId": "AppReservasBio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\",
+      "BasePath": "_content/AppReservasBio",
+      "RelativePath": "evidencia/BobEnojado#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "j5uwcmxhs6",
+      "Integrity": "p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\evidencia\\BobEnojado.jpg"
     },
     {
       "Identity": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\BobPreocupado.jfif",
@@ -1609,6 +1630,88 @@
       ]
     },
     {
+      "Route": "evidencia/BobEnojado.j5uwcmxhs6.jpg",
+      "AssetFile": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\BobEnojado.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9095"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Jun 2025 20:07:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "j5uwcmxhs6"
+        },
+        {
+          "Name": "label",
+          "Value": "evidencia/BobEnojado.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k="
+        }
+      ]
+    },
+    {
+      "Route": "evidencia/BobEnojado.jpg",
+      "AssetFile": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\BobEnojado.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "9095"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Jun 2025 20:07:07 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k="
+        }
+      ]
+    },
+    {
       "Route": "evidencia/BobPreocupado.fu79h11ama.jfif",
       "AssetFile": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\BobPreocupado.jfif",
       "Selectors": [],
@@ -1631,7 +1734,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Jun 2025 19:40:23 GMT"
+          "Value": "Wed, 18 Jun 2025 20:28:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1676,7 +1779,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 11 Jun 2025 19:40:23 GMT"
+          "Value": "Wed, 18 Jun 2025 20:28:24 GMT"
         },
         {
           "Name": "Cache-Control",

@@ -43,7 +43,8 @@ namespace AppReservasBio.Controllers
         {
             new Claim(ClaimTypes.Name, usuario.Nombre),
             new Claim(ClaimTypes.Email, usuario.Correo),
-            new Claim("UserId", usuario.Id.ToString())
+            new Claim("UserId", usuario.Id.ToString()),
+            new Claim(ClaimTypes.Role, "admin")
         };
 
             var claimsIdentity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);

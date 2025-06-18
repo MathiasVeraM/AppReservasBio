@@ -6,6 +6,16 @@
 
 <h2 class="mb-4">Crear Reserva</h2>
 
+@if (!ViewData.ModelState.IsValid)
+{
+    <div class="alert alert-danger">
+        @foreach (var error in ViewData.ModelState.Values.SelectMany(v => v.Errors))
+        {
+            <p>@error.ErrorMessage</p>
+        }
+    </div>
+}
+
 <form asp-action="Crear" method="post" enctype="multipart/form-data" class="needs-validation" novalidate>
 
     <!-- Información general -->
@@ -70,7 +80,7 @@
         <div class="card-body" id="estudiantes-container">
             <div class="row g-3 mb-3 estudiante-item">
                 <div class="col-md-3">
-                    <input name="estudiantes[0].Cedula" class="form-control" placeholder="Cédula" required />
+                    <input name="estudiantes[0].Cedula" class="form-control" placeholder="ID Banner" required />
                 </div>
                 <div class="col-md-3">
                     <input name="estudiantes[0].Nombre" class="form-control" placeholder="Nombre" required />
@@ -209,7 +219,6 @@
             const container = checkbox.closest('.d-flex');
             const cantidadInput = container.querySelector('input[type="number"]');
             const unidadSelect = container.querySelector('select');
-
             const mostrar = checkbox.checked;
 
             if (cantidadInput) cantidadInput.style.display = mostrar ? 'inline-block' : 'none';

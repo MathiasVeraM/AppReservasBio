@@ -35,8 +35,22 @@ app.UseRouting();
 app.UseAuthentication();  // Muy importante que vaya antes de UseAuthorization
 app.UseAuthorization();
 
+app.Use(async (context, next) =>
+{
+    if (context.Request.Path == "/")
+    {
+        if (context.User.Identity?.IsAuthenticated == true)
+        {
+            context.Response.Redirect("/Reservas/Listado");
+            return;
+        }
+    }
+
+    await next();
+});
+
 app.MapControllerRoute(
     name: "default",
-    pattern: "{controller=Reservas}/{action=Crear}/{id?}");
+    pattern: "{controller=Reservas}/{action=Calendario}/{id?}");
 
 app.Run();

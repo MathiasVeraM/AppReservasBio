@@ -4,6 +4,7 @@ using AppReservasBio.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -11,9 +12,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AppReservasBio.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250618191042_ModificacionesMantenimientoAdmin")]
+    partial class ModificacionesMantenimientoAdmin
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -73,6 +76,7 @@ namespace AppReservasBio.Migrations
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Correo")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("Nombre")
@@ -239,21 +243,24 @@ namespace AppReservasBio.Migrations
                     SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
 
                     b.Property<string>("Actividad")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<bool>("Aprobado")
                         .HasColumnType("bit");
 
                     b.Property<string>("ConsideracionesEspeciales")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("DocenteId")
+                    b.Property<int>("DocenteId")
                         .HasColumnType("int");
 
                     b.Property<bool>("EsMantenimiento")
                         .HasColumnType("bit");
 
                     b.Property<string>("EvidenciaCorreoRuta")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<DateTime>("Fecha")
@@ -269,12 +276,14 @@ namespace AppReservasBio.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Materia")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
-                    b.Property<int?>("ModuloHorarioId")
+                    b.Property<int>("ModuloHorarioId")
                         .HasColumnType("int");
 
                     b.Property<string>("NombreProyecto")
+                        .IsRequired()
                         .HasColumnType("nvarchar(max)");
 
                     b.Property<string>("UsuarioId")
@@ -400,7 +409,9 @@ namespace AppReservasBio.Migrations
                 {
                     b.HasOne("AppReservasBio.Models.Docente", "Docente")
                         .WithMany("Reservas")
-                        .HasForeignKey("DocenteId");
+                        .HasForeignKey("DocenteId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("AppReservasBio.Models.Laboratorio", "Laboratorio")
                         .WithMany("Reservas")
@@ -410,7 +421,9 @@ namespace AppReservasBio.Migrations
 
                     b.HasOne("AppReservasBio.Models.ModuloHorario", "ModuloHorario")
                         .WithMany("Reservas")
-                        .HasForeignKey("ModuloHorarioId");
+                        .HasForeignKey("ModuloHorarioId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.Navigation("Docente");
 

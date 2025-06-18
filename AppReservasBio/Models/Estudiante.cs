@@ -15,7 +15,7 @@ namespace AppReservasBio.Models
         public string Nombre { get; set; }
 
         [EmailAddress]
-        public string Correo { get; set; }
+        public string? Correo { get; set; }
 
         [Required]
         public int ReservaId { get; set; }

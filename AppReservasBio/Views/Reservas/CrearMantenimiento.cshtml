@@ -1,0 +1,31 @@
+﻿@model AppReservasBio.Models.Reserva
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    ViewData["Title"] = "Reserva de Mantenimiento";
+}
+
+<h2 class="mb-4">Reserva de Mantenimiento</h2>
+
+<form asp-action="CrearMantenimiento" method="post" class="needs-validation">
+
+    <div class="row g-3 mb-3">
+        <div class="col-md-4">
+            <label class="form-label">Fecha</label>
+            <input asp-for="Fecha" type="date" class="form-control" required />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Laboratorio</label>
+            <select asp-for="LaboratorioId" asp-items="@(new SelectList(ViewBag.Laboratorios, "Id", "Nombre"))" class="form-select" required></select>
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Hora inicio</label>
+            <input asp-for="HoraInicioMantenimiento" type="time" class="form-control" required />
+        </div>
+        <div class="col-md-4">
+            <label class="form-label">Hora fin</label>
+            <input asp-for="HoraFinMantenimiento" type="time" class="form-control" required />
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Reservar Mantenimiento</button>
+</form>

@@ -1,17 +1,18 @@
-﻿@model List<AppReservasBio.Models.Reserva>
+﻿@model IEnumerable<AppReservasBio.Models.Reserva>
+
 @{
     ViewData["Title"] = "Listado de Reservas";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
 
-<h2 class="mb-4">Listado de Reservas</h2>
+<h1>Listado de Reservas</h1>
 
-<table class="table bg-white table-bordered table-striped">
-    <thead class="table-dark">
+<table class="table table-striped">
+    <thead>
         <tr>
             <th>Fecha</th>
-            <th>Laboratorio</th>
             <th>Módulo</th>
+            <th>Laboratorio</th>
             <th>Estudiantes</th>
             <th>Equipos</th>
             <th>Reactivos</th>
@@ -24,57 +25,86 @@
         @foreach (var r in Model)
         {
             <tr>
-                <td>@r.Fecha.ToString("dd/MM/yyyy")</td>
-                <td>@r.Laboratorio.Nombre</td>
-                <td>@r.ModuloHorario.Nombre</td>
+                <td>@r.Fecha.ToShortDateString()</td>
+                <td>@(r.ModuloHorario?.Nombre ?? "—")</td>
+                <td>@(r.Laboratorio?.Nombre ?? "—")</td>
                 <td>
                     <ul class="mb-0">
-                        @foreach (var est in r.Estudiantes)
+                        @if (r.Estudiantes != null && r.Estudiantes.Any())
                         {
-                            <li>@est.Nombre (@est.Cedula)</li>
+                            foreach (var est in r.Estudiantes)
+                            {
+                                <li>@est.Nombre (@est.Cedula)</li>
+                            }
+                        }
+                        else
+                        {
+                            <li>-</li>
                         }
                     </ul>
                 </td>
                 <td>
                     <ul class="mb-0">
-                        @foreach (var eq in r.Equipos)
+                        @if (r.Equipos != null && r.Equipos.Any())
                         {
-                            <li>@eq.Nombre</li>
+                            foreach (var eq in r.Equipos)
+                            {
+                                <li>@eq.Nombre</li>
+                            }
+                        }
+                        else
+                        {
+                            <li>-</li>
                         }
                     </ul>
                 </td>
                 <td>
                     <ul class="mb-0">
-                        @foreach (var rr in r.ReservaReactivos)
+                        @if (r.ReservaReactivos != null && r.ReservaReactivos.Any())
                         {
-                            <li>@rr.Reactivo.Nombre: @rr.Cantidad</li>
+                            foreach (var rr in r.ReservaReactivos)
+                            {
+                                <li>@(rr.Reactivo?.Nombre ?? "—") - @rr.Cantidad</li>
+                            }
+                        }
+                        else
+                        {
+                            <li>-</li>
                         }
                     </ul>
                 </td>
                 <td>
-                    @if (r.Aprobado)
+                    @if (r.EsMantenimiento)
                     {
-                        <span class="badge bg-success">Aprobada</span>
+                        <span class="badge bg-info text-dark">Mantenimiento</span>
+                    }
+                    else if (r.Aprobado)
+                    {
+                        <span class="badge bg-success">Aprobado</span>
                     }
                     else
                     {
                         <span class="badge bg-warning text-dark">Pendiente</span>
                     }
                 </td>
-                <td>
-                    <a asp-action="Detalle" asp-route-id="@r.Id" class="btn btn-info">Ver Detalles</a>
-                </td>
-                <td>
-                    <form asp-action="Aprobar" method="post" class="d-inline">
-                        <input type="hidden" name="id" value="@r.Id" />
-                        <button type="submit" class="btn btn-success btn-sm">Aprobar</button>
-                    </form>
-                    <br />
-                    <form asp-action="Rechazar" method="post" class="d-inline">
-                        <input type="hidden" name="id" value="@r.Id" />
-                        <button type="submit" class="btn btn-danger btn-sm">Rechazar</button>
-                    </form>
-                </td>
+                @if (!r.EsMantenimiento)
+                {
+                    <td>
+                        <a asp-action="Detalle" asp-route-id="@r.Id" class="btn btn-info">Ver Detalles</a>
+                    </td>
+                    <td>
+
+                        <form asp-action="Aprobar" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@r.Id" />
+                            <button type="submit" class="btn btn-success btn-sm">Aprobar</button>
+                        </form>
+                        <br />
+                        <form asp-action="Rechazar" method="post" class="d-inline">
+                            <input type="hidden" name="id" value="@r.Id" />
+                            <button type="submit" class="btn btn-danger btn-sm">Rechazar</button>
+                        </form>
+                    </td>
+                }
             </tr>
         }
     </tbody>

@@ -13,43 +13,32 @@ namespace AppReservasBio.Models
         [DataType(DataType.Date)]
         public DateTime Fecha { get; set; }
 
-        [Required]
-        public string Materia { get; set; }
+        public string? Materia { get; set; }
+        public string? NombreProyecto { get; set; }
+        public string? Actividad { get; set; }
+        public string? ConsideracionesEspeciales { get; set; }
 
-        [Required]
-        public string NombreProyecto { get; set; }
+        public int? ModuloHorarioId { get; set; }
+        public ModuloHorario? ModuloHorario { get; set; }
 
-        [Required]
-        public string Actividad { get; set; }
-
-        public string ConsideracionesEspeciales { get; set; }
-
-        [Required]
-        public int ModuloHorarioId { get; set; }
-
-        [ForeignKey("ModuloHorarioId")]
-        public ModuloHorario ModuloHorario { get; set; }
-
-        [Required]
         public int LaboratorioId { get; set; }
-
-        [ForeignKey("LaboratorioId")]
         public Laboratorio Laboratorio { get; set; }
 
-        [Required]
-        public int DocenteId { get; set; }
+        public int? DocenteId { get; set; }
+        public Docente? Docente { get; set; }
 
-        [ForeignKey("DocenteId")]
-        public Docente Docente { get; set; }
-        [Required]
-        public string EvidenciaCorreoRuta { get; set; } // Ruta de la imagen subida
+        public string? EvidenciaCorreoRuta { get; set; }
 
         public bool Aprobado { get; set; } = false;
 
-        public ICollection<Estudiante> Estudiantes { get; set; }
+        public bool EsMantenimiento { get; set; } = false;
+        public TimeSpan? HoraInicioMantenimiento { get; set; }
+        public TimeSpan? HoraFinMantenimiento { get; set; }
 
-        public ICollection<Equipo> Equipos { get; set; } // Mesón se incluye como equipo extra
+        public string? UsuarioId { get; set; }
 
-        public ICollection<ReservaReactivo> ReservaReactivos { get; set; }
+        public ICollection<Estudiante> Estudiantes { get; set; } = new List<Estudiante>();
+        public ICollection<Equipo> Equipos { get; set; } = new List<Equipo>();
+        public ICollection<ReservaReactivo> ReservaReactivos { get; set; } = new List<ReservaReactivo>();
     }
 }

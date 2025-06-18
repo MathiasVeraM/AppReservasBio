@@ -1,4 +1,5 @@
 wwwroot\css\site.css
+wwwroot\evidencia\BobEnojado.jpg
 wwwroot\evidencia\BobPreocupado.jfif
 wwwroot\favicon.ico
 wwwroot\img\udla.png
