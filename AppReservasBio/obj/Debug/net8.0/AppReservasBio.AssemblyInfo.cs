@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("AppReservasBio")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d07590063e725290478fe21e35ae304cba63542a")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+b343a4869d9b252770c204806fc17334dc428dd1")]
 [assembly: System.Reflection.AssemblyProductAttribute("AppReservasBio")]
 [assembly: System.Reflection.AssemblyTitleAttribute("AppReservasBio")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

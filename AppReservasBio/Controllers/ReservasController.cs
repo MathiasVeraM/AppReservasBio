@@ -196,6 +196,22 @@ namespace AppReservasBio.Controllers
         }
 
         [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Eliminar(int id)
+        {
+            var reserva = await _context.Reservas.FindAsync(id);
+            if (reserva == null)
+            {
+                return NotFound();
+            }
+
+            _context.Reservas.Remove(reserva);
+            await _context.SaveChangesAsync();
+
+            return RedirectToAction("Listado");
+        }
+
+        [HttpPost]
         public IActionResult Aprobar(int id)
         {
             var reserva = _context.Reservas.Find(id);

@@ -3,8 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|c:\\users\\usuario\\desktop\\mathias\\proyectos\\asp net\\appreservasbio\\appreservasbio\\migrations\\20250618203457_correccionerrores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|solutionrelative:appreservasbio\\migrations\\20250618203457_correccionerrores.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|c:\\users\\usuario\\desktop\\mathias\\proyectos\\asp net\\appreservasbio\\appreservasbio\\views\\reservas\\listado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|solutionrelative:appreservasbio\\views\\reservas\\listado.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|c:\\users\\usuario\\desktop\\mathias\\proyectos\\asp net\\appreservasbio\\appreservasbio\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{F17FE7B1-A77B-49A4-BC7A-14D1E508A57B}|AppReservasBio\\AppReservasBio.csproj|solutionrelative:appreservasbio\\controllers\\reservascontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -14,19 +18,32 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "20250618203457_CorreccionErrores.cs",
-              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Migrations\\20250618203457_CorreccionErrores.cs",
-              "RelativeDocumentMoniker": "AppReservasBio\\Migrations\\20250618203457_CorreccionErrores.cs",
-              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Migrations\\20250618203457_CorreccionErrores.cs",
-              "RelativeToolTip": "AppReservasBio\\Migrations\\20250618203457_CorreccionErrores.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "DocumentIndex": 1,
+              "Title": "ReservasController.cs",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Controllers\\ReservasController.cs",
+              "RelativeDocumentMoniker": "AppReservasBio\\Controllers\\ReservasController.cs",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Controllers\\ReservasController.cs",
+              "RelativeToolTip": "AppReservasBio\\Controllers\\ReservasController.cs",
+              "ViewState": "AgIAAMEAAAAAAAAAAAAcwMUAAAAIAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-06-18T20:34:59.235Z",
+              "WhenOpened": "2025-06-18T22:31:00.815Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Listado.cshtml",
+              "DocumentMoniker": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Views\\Reservas\\Listado.cshtml",
+              "RelativeDocumentMoniker": "AppReservasBio\\Views\\Reservas\\Listado.cshtml",
+              "ToolTip": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\Views\\Reservas\\Listado.cshtml",
+              "RelativeToolTip": "AppReservasBio\\Views\\Reservas\\Listado.cshtml",
+              "ViewState": "AgIAAHIAAAAAAAAAAAAAAH8AAABEAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2025-06-18T22:30:57.874Z",
               "EditorCaption": ""
             }
           ]

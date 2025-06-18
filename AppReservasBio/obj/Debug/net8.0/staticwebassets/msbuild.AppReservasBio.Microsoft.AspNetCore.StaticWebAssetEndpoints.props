@@ -28,25 +28,37 @@
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\evidencia\BobEnojado.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"j5uwcmxhs6"},{"Name":"integrity","Value":"sha256-p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k="},{"Name":"label","Value":"_content/AppReservasBio/evidencia/BobEnojado.jpg"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"9095"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 20:07:07 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"9095"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 20:39:24 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AppReservasBio/evidencia/BobEnojado.jpg">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\evidencia\BobEnojado.jpg'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"9095"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 20:07:07 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"9095"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u0022p1Ts/Q5PUStbRtmnXYogKQBFcIlAt7/Y6yJG4PSEY9k=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 20:39:24 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AppReservasBio/evidencia/BobPreocupado.fu79h11ama.jfif">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\evidencia\BobPreocupado.jfif'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"fu79h11ama"},{"Name":"integrity","Value":"sha256-CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ="},{"Name":"label","Value":"_content/AppReservasBio/evidencia/BobPreocupado.jfif"}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6278"},{"Name":"Content-Type","Value":"image/pjpeg"},{"Name":"ETag","Value":"\u0022CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 20:28:24 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"6278"},{"Name":"Content-Type","Value":"image/pjpeg"},{"Name":"ETag","Value":"\u0022CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 20:37:40 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AppReservasBio/evidencia/BobPreocupado.jfif">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\evidencia\BobPreocupado.jfif'))</AssetFile>
       <Selectors><![CDATA[[]]]></Selectors>
       <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ="}]]]></EndpointProperties>
-      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"6278"},{"Name":"Content-Type","Value":"image/pjpeg"},{"Name":"ETag","Value":"\u0022CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 20:28:24 GMT"}]]]></ResponseHeaders>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"6278"},{"Name":"Content-Type","Value":"image/pjpeg"},{"Name":"ETag","Value":"\u0022CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 20:37:40 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AppReservasBio/evidencia/DonCangrejoSatanico.f6wx7cy4re.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\evidencia\DonCangrejoSatanico.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"fingerprint","Value":"f6wx7cy4re"},{"Name":"integrity","Value":"sha256-2ae4C4GLs9Lcc01aDdszWxjxVyH08f/IxxcGf/ygXXw="},{"Name":"label","Value":"_content/AppReservasBio/evidencia/DonCangrejoSatanico.jpg"}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=31536000, immutable"},{"Name":"Content-Length","Value":"14423"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00222ae4C4GLs9Lcc01aDdszWxjxVyH08f/IxxcGf/ygXXw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 20:38:31 GMT"}]]]></ResponseHeaders>
+    </StaticWebAssetEndpoint>
+    <StaticWebAssetEndpoint Include="_content/AppReservasBio/evidencia/DonCangrejoSatanico.jpg">
+      <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\evidencia\DonCangrejoSatanico.jpg'))</AssetFile>
+      <Selectors><![CDATA[[]]]></Selectors>
+      <EndpointProperties><![CDATA[[{"Name":"integrity","Value":"sha256-2ae4C4GLs9Lcc01aDdszWxjxVyH08f/IxxcGf/ygXXw="}]]]></EndpointProperties>
+      <ResponseHeaders><![CDATA[[{"Name":"Accept-Ranges","Value":"bytes"},{"Name":"Cache-Control","Value":"max-age=3600, must-revalidate"},{"Name":"Content-Length","Value":"14423"},{"Name":"Content-Type","Value":"image/jpeg"},{"Name":"ETag","Value":"\u00222ae4C4GLs9Lcc01aDdszWxjxVyH08f/IxxcGf/ygXXw=\u0022"},{"Name":"Last-Modified","Value":"Wed, 18 Jun 2025 20:38:31 GMT"}]]]></ResponseHeaders>
     </StaticWebAssetEndpoint>
     <StaticWebAssetEndpoint Include="_content/AppReservasBio/favicon.61n19gt1b8.ico">
       <AssetFile>$([System.IO.Path]::GetFullPath('$(MSBuildThisFileDirectory)..\staticwebassets\favicon.ico'))</AssetFile>

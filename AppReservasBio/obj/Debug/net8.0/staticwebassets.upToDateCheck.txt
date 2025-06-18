@@ -1,6 +1,7 @@
 wwwroot\css\site.css
 wwwroot\evidencia\BobEnojado.jpg
 wwwroot\evidencia\BobPreocupado.jfif
+wwwroot\evidencia\DonCangrejoSatanico.jpg
 wwwroot\favicon.ico
 wwwroot\img\udla.png
 wwwroot\js\site.js

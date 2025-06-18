@@ -1,6 +1,6 @@
 {
   "Version": 1,
-  "Hash": "OinIydbq9EPnLaEBNUPtMIjoudY64EOqIfOw2hGbW/I=",
+  "Hash": "/mmdtpxlrLQBlaihCvRHe1ajLMkTKKeolrf/cuz2AWk=",
   "Source": "AppReservasBio",
   "BasePath": "_content/AppReservasBio",
   "Mode": "Default",
@@ -120,6 +120,27 @@
       "CopyToOutputDirectory": "Never",
       "CopyToPublishDirectory": "PreserveNewest",
       "OriginalItemSpec": "wwwroot\\evidencia\\BobPreocupado.jfif"
+    },
+    {
+      "Identity": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\DonCangrejoSatanico.jpg",
+      "SourceId": "AppReservasBio",
+      "SourceType": "Discovered",
+      "ContentRoot": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\",
+      "BasePath": "_content/AppReservasBio",
+      "RelativePath": "evidencia/DonCangrejoSatanico#[.{fingerprint}]?.jpg",
+      "AssetKind": "All",
+      "AssetMode": "All",
+      "AssetRole": "Primary",
+      "AssetMergeBehavior": "",
+      "AssetMergeSource": "",
+      "RelatedAsset": "",
+      "AssetTraitName": "",
+      "AssetTraitValue": "",
+      "Fingerprint": "f6wx7cy4re",
+      "Integrity": "2ae4C4GLs9Lcc01aDdszWxjxVyH08f/IxxcGf/ygXXw=",
+      "CopyToOutputDirectory": "Never",
+      "CopyToPublishDirectory": "PreserveNewest",
+      "OriginalItemSpec": "wwwroot\\evidencia\\DonCangrejoSatanico.jpg"
     },
     {
       "Identity": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\favicon.ico",
@@ -1652,7 +1673,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 18 Jun 2025 20:07:07 GMT"
+          "Value": "Wed, 18 Jun 2025 20:39:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1697,7 +1718,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 18 Jun 2025 20:07:07 GMT"
+          "Value": "Wed, 18 Jun 2025 20:39:24 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1734,7 +1755,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 18 Jun 2025 20:28:24 GMT"
+          "Value": "Wed, 18 Jun 2025 20:37:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1779,7 +1800,7 @@
         },
         {
           "Name": "Last-Modified",
-          "Value": "Wed, 18 Jun 2025 20:28:24 GMT"
+          "Value": "Wed, 18 Jun 2025 20:37:40 GMT"
         },
         {
           "Name": "Cache-Control",
@@ -1790,6 +1811,88 @@
         {
           "Name": "integrity",
           "Value": "sha256-CYuvp5py1MSYkhGgT3W/VNMb1hJVH7vtJP1okz30tfQ="
+        }
+      ]
+    },
+    {
+      "Route": "evidencia/DonCangrejoSatanico.f6wx7cy4re.jpg",
+      "AssetFile": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\DonCangrejoSatanico.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14423"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ae4C4GLs9Lcc01aDdszWxjxVyH08f/IxxcGf/ygXXw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Jun 2025 20:38:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=31536000, immutable"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "fingerprint",
+          "Value": "f6wx7cy4re"
+        },
+        {
+          "Name": "label",
+          "Value": "evidencia/DonCangrejoSatanico.jpg"
+        },
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ae4C4GLs9Lcc01aDdszWxjxVyH08f/IxxcGf/ygXXw="
+        }
+      ]
+    },
+    {
+      "Route": "evidencia/DonCangrejoSatanico.jpg",
+      "AssetFile": "C:\\Users\\USUARIO\\Desktop\\MATHIAS\\PROYECTOS\\ASP NET\\AppReservasBio\\AppReservasBio\\wwwroot\\evidencia\\DonCangrejoSatanico.jpg",
+      "Selectors": [],
+      "ResponseHeaders": [
+        {
+          "Name": "Accept-Ranges",
+          "Value": "bytes"
+        },
+        {
+          "Name": "Content-Length",
+          "Value": "14423"
+        },
+        {
+          "Name": "Content-Type",
+          "Value": "image/jpeg"
+        },
+        {
+          "Name": "ETag",
+          "Value": "\"2ae4C4GLs9Lcc01aDdszWxjxVyH08f/IxxcGf/ygXXw=\""
+        },
+        {
+          "Name": "Last-Modified",
+          "Value": "Wed, 18 Jun 2025 20:38:31 GMT"
+        },
+        {
+          "Name": "Cache-Control",
+          "Value": "max-age=3600, must-revalidate"
+        }
+      ],
+      "EndpointProperties": [
+        {
+          "Name": "integrity",
+          "Value": "sha256-2ae4C4GLs9Lcc01aDdszWxjxVyH08f/IxxcGf/ygXXw="
         }
       ]
     },
